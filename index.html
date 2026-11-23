@@ -1,0 +1,74 @@
+<html lang="pl">
+<!-- Wersja deweloperska: kod jest w css/ i js/. Jednoplikową wersję buduje tools/build.py -->
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>KoLaboranci</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Bricolage+Grotesque:opsz,wght@12..96,500;12..96,700;12..96,800&family=Atkinson+Hyperlegible:wght@400;700&family=IBM+Plex+Mono:wght@500;600&display=swap">
+<link rel="stylesheet" href="css/style.css">
+<!-- Zapamiętany motyw ustawiany od razu, żeby strona nie mignęła w złych kolorach. -->
+<script>try{var th=localStorage.getItem('kolaboranci.theme');if(th==='light'||th==='dark')document.documentElement.dataset.theme=th;if(localStorage.getItem('kolaboranci.lang')==='en')document.documentElement.lang='en'}catch(e){}</script>
+</head>
+<body>
+<div class="wrap">
+  <header class="top">
+    <div class="brand">
+      <svg class="logo" viewBox="0 0 48 48" aria-hidden="true"><circle cx="24" cy="24" r="5" fill="var(--accent)"/><ellipse cx="24" cy="24" rx="20" ry="8" fill="none" stroke="var(--ink)" stroke-width="2"/><ellipse cx="24" cy="24" rx="20" ry="8" fill="none" stroke="var(--ink)" stroke-width="2" transform="rotate(60 24 24)"/><ellipse cx="24" cy="24" rx="20" ry="8" fill="none" stroke="var(--ink)" stroke-width="2" transform="rotate(120 24 24)"/><circle cx="44" cy="24" r="3" fill="var(--g-alk)"/><circle cx="14" cy="41" r="3" fill="var(--g-nme)"/><circle cx="14" cy="7" r="3" fill="var(--g-gaz)"/></svg>
+      <div><h1>KoLaboranci</h1><div class="tag" data-i18n="tagline">Chemiczna gra karciana · 2 k6</div></div>
+    </div>
+    <div class="spacer"></div>
+    <div class="prefs">
+      <div class="seg langseg" role="group" aria-label="Język / Language">
+        <button data-lang="pl" lang="pl">PL</button><button data-lang="en" lang="en">EN</button>
+      </div>
+      <div class="seg themeseg" role="group" id="themeSeg">
+        <button type="button" data-theme-set="light"></button><button type="button" data-theme-set="dark"></button>
+      </div>
+    </div>
+    <button class="btn" id="rulesBtn" data-i18n="rules">Zasady</button>
+    <button class="btn primary" id="newBtn" data-i18n="newGame">Nowa gra</button>
+  </header>
+
+  <div class="layout">
+    <main style="min-width:0">
+      <section class="opps" id="opps"></section>
+      <section class="panel board">
+        <div class="board-head"><h2 data-i18n="reactionsHeader">Reakcje do przeprowadzenia</h2><span class="label" id="deckInfo"></span></div>
+        <div class="reactions" id="center"></div>
+      </section>
+      <section class="panel me" id="me"></section>
+    </main>
+    <aside style="min-width:0">
+      <div class="panel">
+        <div class="label" style="margin-bottom:8px" data-i18n="lastRoll">Ostatni rzut</div>
+        <div class="dicebox"><div class="die" id="d1"></div><div class="die" id="d2"></div><div class="rollinfo" id="rollinfo"><div class="tot">–</div><div data-i18n="rollHint">Rzuć kośćmi, aktywując pierwiastek.</div></div></div>
+      </div>
+      <div class="panel"><div class="label" style="margin-bottom:8px" data-i18n="journal">Dziennik laboratorium</div><div class="log" id="log"></div></div>
+      <div class="panel"><div class="label" style="margin-bottom:8px" data-i18n="groupsHeader">Grupy pierwiastków</div><div class="legend" id="legend"></div></div>
+    </aside>
+  </div>
+  <footer class="site">© 2026 CappySoft.pl</footer>
+</div>
+<div id="modalRoot"></div>
+
+<!-- Kolejność ma znaczenie: dane i funkcje muszą być wczytane przed setup.js, który uruchamia grę. -->
+<script src="js/helpers.js"></script>
+<script src="js/i18n.js"></script>
+<script src="js/lang/pl.js"></script>
+<script src="js/lang/en.js"></script>
+<script src="js/theme.js"></script>
+<script src="js/data.js"></script>
+<script src="js/art.js"></script>
+<script src="js/state.js"></script>
+<script src="js/modal.js"></script>
+<script src="js/cards.js"></script>
+<script src="js/dice.js"></script>
+<script src="js/challenge.js"></script>
+<script src="js/rules.js"></script>
+<script src="js/turns.js"></script>
+<script src="js/input.js"></script>
+<script src="js/render.js"></script>
+<script src="js/setup.js"></script>
+</body>
+</html>
